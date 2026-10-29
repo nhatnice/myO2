@@ -18,17 +18,15 @@ export const Card = (props) => {
             </div> : null}
             <div className="image" style={{background: `url(${data.image}) no-repeat center center / cover`}}></div>
             <div className="information-container">
-                <div className="information">
-                        <div className="title">
+                <div className="header-info">
+                    <div className="title">
                         <h5>{data.name}</h5>
                     </div>
-                    <p>{data.address},phường {data.ward}, {districts[data.district].title}, {cities[data.city].title}</p>
-                </div>
-                <div className="status-container">
                     <div className={`status ${data.status ? 'green' : 'red'}`}>
                         <span>{data.status ? 'Còn' : 'Đã hết'} Oxy</span>
                     </div>
                 </div>
+                <p>{data.address}, phường {data.ward}, {districts[data.district].title}, {cities[data.city].title}</p>
             </div>
         </Link>
     )
