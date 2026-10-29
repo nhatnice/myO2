@@ -115,17 +115,19 @@ This generates an optimized production bundle in the `build/` directory ready fo
 
 ## ☁️ Cloudflare Pages Deployment
 
-This project includes an automated GitHub Actions workflow located at [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) that automatically builds and deploys every commit pushed to `main` directly to Cloudflare Pages.
+You can deploy myO2 directly to [Cloudflare Pages](https://pages.cloudflare.com/) using Cloudflare's native Git integration or via the Wrangler CLI.
 
-### Required GitHub Secrets
+### Cloudflare Pages Git Integration
 
-To enable automated deployment, add the following secrets in your GitHub repository (**Settings > Secrets and variables > Actions**):
-
-| Secret Name | Description |
-| :--- | :--- |
-| `CLOUDFLARE_API_TOKEN` | Cloudflare API token with `Cloudflare Pages: Edit` permissions |
-| `CLOUDFLARE_ACCOUNT_ID` | Your Cloudflare Account ID (found on the Workers & Pages dashboard) |
-| `CLOUDFLARE_PROJECT_NAME` | *(Optional)* Cloudflare Pages project name (defaults to `myo2`) |
+1. Go to your **Cloudflare Dashboard** > **Compute (Workers & Pages)** > **Create application** > **Pages** > **Connect to Git**.
+2. Select your `myO2` repository and configure the build settings:
+   - **Framework preset**: `Create React App`
+   - **Build command**: `npm run build`
+   - **Build output directory**: `build`
+3. In **Environment variables**, configure your Firebase credentials:
+   - Add all `REACT_APP_FIREBASE_*` variables listed in the [Environment Variables](#environment-variables) section.
+   - Add `SKIP_PREFLIGHT_CHECK=true`.
+4. Click **Save and Deploy**. Cloudflare Pages will automatically trigger a build and deploy on every push to `main`.
 
 ### Manual Deployment via Wrangler
 
@@ -145,9 +147,6 @@ npx wrangler pages deploy build --project-name=myo2
 
 ```text
 myO2/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml        # Cloudflare Pages CI/CD workflow
 ├── images/                   # App showcase screenshots
 │   ├── home.png
 │   ├── mobile-home.png
