@@ -1,5 +1,5 @@
 import { useEffect, useState} from "react";
-import {Database, snapToArray, randomId} from '../../Global/Variables';
+import {Database, snapToArray, randomId, defaultO2Data} from '../../Global/Variables';
 import Axios from 'axios';
 
 export function Controller(props) {
@@ -122,9 +122,29 @@ export function Controller(props) {
 
     //Fetch Data
     useEffect(() => {
-        Database.ref(`o2/${props.match.params.district}/${props.match.params.id}`).once('value', snapshot => {
-            setData(snapshot.val())
-        })
+        const fallbackDistrict = defaultO2Data[props.match.params.district] || [];
+        const fallbackItem = fallbackDistrict.find(item => item.id === props.match.params.id) || fallbackDistrict[0];
+
+        const timer = setTimeout(() => {
+            if (fallbackItem) setData(fallbackItem);
+        }, 1500);
+
+        try {
+            Database.ref(`o2/${props.match.params.district}/${props.match.params.id}`).once('value', snapshot => {
+                clearTimeout(timer);
+                if (snapshot.exists() && snapshot.val()) {
+                    setData(snapshot.val());
+                } else if (fallbackItem) {
+                    setData(fallbackItem);
+                }
+            }, () => {
+                clearTimeout(timer);
+                if (fallbackItem) setData(fallbackItem);
+            });
+        } catch (e) {
+            clearTimeout(timer);
+            if (fallbackItem) setData(fallbackItem);
+        }
     }, [])
 
     //Gửi yêu cầu

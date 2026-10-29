@@ -203,3 +203,79 @@ export const randomId = length => {
    }
    return result;
 }
+
+export const defaultO2Data = {
+    0: [
+        {
+            id: 'o2-q1-01',
+            uid: 'station-01',
+            name: 'Trạm Oxy Cứu Trợ Bến Nghé',
+            phone: '0938415997',
+            city: 0,
+            district: 0,
+            ward: 'Bến Nghé',
+            address: '15 Lê Duẩn',
+            information: 'Tiếp nhận và hỗ trợ đổi bình oxy 40L, 14L và máy thở oxy 24/7 cho các ca F0 điều trị tại nhà.',
+            image: '/resources/img/thumbnail.jpg',
+            status: 1
+        },
+        {
+            id: 'o2-q1-02',
+            uid: 'station-02',
+            name: 'ATM Oxy Quận 1 - Doanh Nhân Trẻ',
+            phone: '0901234567',
+            city: 0,
+            district: 0,
+            ward: 'Đa Kao',
+            address: '88 Đinh Tiên Hoàng',
+            information: 'Hỗ trợ mượn bình oxy miễn phí cho bệnh nhân khó thở.',
+            image: '/resources/img/thumbnail.jpg',
+            status: 1
+        }
+    ],
+    2: [
+        {
+            id: 'o2-q3-01',
+            uid: 'station-03',
+            name: 'Trạm Oxy Tình Nguyện Quận 3',
+            phone: '0909888999',
+            city: 0,
+            district: 2,
+            ward: 'Phường 6',
+            address: '215 Điện Biên Phủ',
+            information: 'Đội xe phản ứng nhanh giao bình oxy tận nhà.',
+            image: '/resources/img/thumbnail.jpg',
+            status: 1
+        }
+    ],
+    4: [
+        {
+            id: 'o2-q5-01',
+            uid: 'station-04',
+            name: 'Điểm Cấp Oxy Khẩn Cấp Chợ Lớn',
+            phone: '0912345678',
+            city: 0,
+            district: 4,
+            ward: 'Phường 11',
+            address: '126 Hồng Bàng',
+            information: 'Cung cấp bình oxy 10L và dây thở cannula miễn phí.',
+            image: '/resources/img/thumbnail.jpg',
+            status: 1
+        }
+    ],
+    13: [
+        {
+            id: 'o2-bt-01',
+            uid: 'station-05',
+            name: 'Trạm Oxy SOS Bình Thạnh',
+            phone: '0988776655',
+            city: 0,
+            district: 13,
+            ward: 'Phường 24',
+            address: '45 Bạch Đằng',
+            information: 'Trực 24/24 hỗ trợ nạp khí oxy y tế khẩn cấp.',
+            image: '/resources/img/thumbnail.jpg',
+            status: 1
+        }
+    ]
+};

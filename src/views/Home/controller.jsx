@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {Database, snapToArray} from '../../Global/Variables';
+import {Database, snapToArray, defaultO2Data} from '../../Global/Variables';
 
 export function Controller(props) {
     const [o2, setO2] = useState(null);
@@ -115,18 +115,49 @@ export function Controller(props) {
 
     //Fetch data
     const fetchData = async (callback) => {
-        let districtData = [];
+        let hasResolved = false;
+        const fallback = districts.map((d, i) => defaultO2Data[i] || []);
 
-        //Promis lấy từng data của từng quận
-        Promise.all(districts.map((data, i) => {
-            return new Promise((res) => {
-                Database.ref(`o2/${i}`).on('value', snapshot => {
-                    res(snapToArray(snapshot));
-                })
-            })
-        })).then((res) => {
-            return callback(res);
-        })
+        const timeout = setTimeout(() => {
+            if (!hasResolved) {
+                hasResolved = true;
+                callback(fallback);
+            }
+        }, 1500);
+
+        try {
+            Promise.all(districts.map((data, i) => {
+                return new Promise((res) => {
+                    const fallbackDistrict = defaultO2Data[i] || [];
+                    try {
+                        Database.ref(`o2/${i}`).once('value', snapshot => {
+                            const arr = snapToArray(snapshot);
+                            res(arr && arr.length > 0 ? arr : fallbackDistrict);
+                        }, () => res(fallbackDistrict));
+                    } catch (e) {
+                        res(fallbackDistrict);
+                    }
+                });
+            })).then((res) => {
+                clearTimeout(timeout);
+                if (!hasResolved) {
+                    hasResolved = true;
+                    callback(res);
+                }
+            }).catch(() => {
+                clearTimeout(timeout);
+                if (!hasResolved) {
+                    hasResolved = true;
+                    callback(fallback);
+                }
+            });
+        } catch (e) {
+            clearTimeout(timeout);
+            if (!hasResolved) {
+                hasResolved = true;
+                callback(fallback);
+            }
+        }
     }
 
     return {

@@ -1,8 +1,13 @@
 # myO2 — Community Emergency Oxygen Assistance Network
 
+> [!NOTE]
+> **Project Audit & Release Timeline**
+> - **Initial Release Date**: August 29, 2021 (`29/08/2021`) — Built and deployed during the peak COVID-19 pandemic relief in Ho Chi Minh City, Vietnam.
+> - **Codebase Audit & Modernization**: October 29, 2026 (`29/10/2026`) — Audited for Node 18+ runtime, decoupled Firebase configurations into environment variables, modernized Sass, integrated automated Cloudflare Pages CI/CD pipeline, and refreshed project documentation and previews.
+
 ![myO2 Banner](images/home.png)
 
-**myO2** (also known as *My Oxy*) is a community-driven emergency oxygen cylinder locator and humanitarian assistance web application built during the peak of the COVID-19 pandemic in Ho Chi Minh City, Vietnam.
+**myO2** (also known as *My Oxy*) is a community-driven emergency oxygen cylinder locator and humanitarian assistance web application originally released on **August 29, 2021** during the peak of the COVID-19 pandemic in Ho Chi Minh City, Vietnam. On **October 29, 2026**, the codebase underwent a comprehensive audit and modernization to support modern Node.js environments and automated Cloudflare Pages continuous deployment.
 
 When healthcare facilities and hospitals faced acute oxygen shortages during lockdowns, myO2 bridged the critical gap between patients with acute respiratory distress and grassroots volunteer groups, NGOs, and donors supplying oxygen cylinders across every district.
 
@@ -29,9 +34,9 @@ When healthcare facilities and hospitals faced acute oxygen shortages during loc
 | :---: | :---: |
 | ![Login](images/login.png) | ![Signup](images/signup.png) |
 
-| Project Information & Credits |
-| :---: |
-| ![Project Info](images/project-info.png) |
+| Station Details & Emergency Request | Project Information & Credits |
+| :---: | :---: |
+| ![Station Detail](images/station-detail.png) | ![Project Info](images/project-info.png) |
 
 ---
 
@@ -149,6 +154,7 @@ myO2/
 │   ├── welcome.png
 │   ├── login.png
 │   ├── signup.png
+│   ├── station-detail.png
 │   └── project-info.png
 ├── public/                   # Public static assets & index.html
 ├── src/
