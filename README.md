@@ -175,6 +175,6 @@ myO2/
 
 **NHAT TRAN**
 - GitHub: [@nhatnice](https://github.com/nhatnice)
-- Portfolio: [nhatt.com](https://nhatt.com)
+- Portfolio: [nhattran.dev](https://nhattran.dev)
 
 Built with ❤️ for the community during the COVID-19 pandemic relief efforts.
