@@ -1,70 +1,162 @@
-# Getting Started with Create React App
+# myO2 — Community Emergency Oxygen Assistance Network
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![myO2 Banner](images/home.png)
 
-## Available Scripts
+**myO2** (also known as *My Oxy*) is a community-driven emergency oxygen cylinder locator and humanitarian assistance web application built during the peak of the COVID-19 pandemic in Ho Chi Minh City, Vietnam.
 
-In the project directory, you can run:
+When healthcare facilities and hospitals faced acute oxygen shortages during lockdowns, myO2 bridged the critical gap between patients with acute respiratory distress and grassroots volunteer groups, NGOs, and donors supplying oxygen cylinders across every district.
 
-### `yarn start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🌟 Key Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **District-by-District Oxygen Tracking**: Instant, localized inventory visibility of verified oxygen cylinders, regulators, and refill stations across all 24 districts of Ho Chi Minh City.
+- **Emergency Hotline & Dispatch**: Quick-access one-tap calling and emergency request submission for high-risk patients.
+- **Volunteer & Station Management**: Dedicated dashboard for depot managers and relief groups to add, update, and manage cylinder inventory, status, and contact details.
+- **Real-Time Data Synchronization**: Backed by Firebase Realtime Database for immediate, live stock and availability updates without needing manual page reloads.
+- **Push Notification Support**: Integrated Firebase Cloud Messaging (FCM) to broadcast urgent replenishment alerts and critical community requests.
+- **Mobile-First Responsive Design**: Optimized with lightweight styling to load fast and perform smoothly on mobile networks under bandwidth constraints.
 
-### `yarn test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📸 Screenshots
 
-### `yarn build`
+| Onboarding & District Selection | Mobile Emergency View |
+| :---: | :---: |
+| ![Welcome](images/welcome.png) | ![Mobile Home](images/mobile-home.png) |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Station Login | Volunteer Registration |
+| :---: | :---: |
+| ![Login](images/login.png) | ![Signup](images/signup.png) |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| Project Information & Credits |
+| :---: |
+| ![Project Info](images/project-info.png) |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `yarn eject`
+## 🛠 Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- **Frontend Core**: [React 17](https://reactjs.org/) (functional components, hooks)
+- **UI & Components**: [Material-UI (MUI v4)](https://v4.mui.com/), `@material-ui/lab`, [React Icons](https://react-icons.github.io/react-icons/)
+- **Routing**: [React Router](https://reactrouter.com/) (using `HashRouter` for zero-configuration static hosting and direct client routing)
+- **Styling**: Sass / SCSS with modular variables, responsive mixins, and typography tokens
+- **Realtime Database & Backend**: [Firebase](https://firebase.google.com/) (Realtime Database, Authentication, Cloud Messaging)
+- **CI/CD & Hosting**: [Cloudflare Pages](https://pages.cloudflare.com/) via [GitHub Actions](https://github.com/features/actions) with [Cloudflare Wrangler Action](https://github.com/cloudflare/wrangler-action)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 📋 Requirements
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- **Node.js**: `16.x` or `18.x` (recommended)
+- **Package Manager**: `npm` (v7+) or `yarn`
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🚀 Setup & Local Development
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 1. Clone the repository
 
-### Code Splitting
+```bash
+git clone git@github.com:nhatnice/myO2.git
+cd myO2
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 2. Install dependencies
 
-### Analyzing the Bundle Size
+```bash
+npm install --legacy-peer-deps
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+> **Note**: Due to peer dependencies between React 17 and Material-UI v4, use the `--legacy-peer-deps` flag when installing with modern npm versions.
 
-### Making a Progressive Web App
+### 3. Environment configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Create a `.env` file in the root directory (or use the provided `.env`):
 
-### Advanced Configuration
+```bash
+SKIP_PREFLIGHT_CHECK=true
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 4. Run the development server
 
-### Deployment
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Open [http://localhost:3000](http://localhost:3000) to view the application in your browser.
 
-### `yarn build` fails to minify
+### 5. Build for production
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+npm run build
+```
+
+This generates an optimized production bundle in the `build/` directory ready for static hosting.
+
+---
+
+## ☁️ Cloudflare Pages Deployment
+
+This project includes an automated GitHub Actions workflow located at [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) that automatically builds and deploys every commit pushed to `main` directly to Cloudflare Pages.
+
+### Required GitHub Secrets
+
+To enable automated deployment, add the following secrets in your GitHub repository (**Settings > Secrets and variables > Actions**):
+
+| Secret Name | Description |
+| :--- | :--- |
+| `CLOUDFLARE_API_TOKEN` | Cloudflare API token with `Cloudflare Pages: Edit` permissions |
+| `CLOUDFLARE_ACCOUNT_ID` | Your Cloudflare Account ID (found on the Workers & Pages dashboard) |
+| `CLOUDFLARE_PROJECT_NAME` | *(Optional)* Cloudflare Pages project name (defaults to `myo2`) |
+
+### Manual Deployment via Wrangler
+
+You can also deploy manually at any time using Wrangler:
+
+```bash
+# Build the project
+npm run build
+
+# Deploy to Cloudflare Pages
+npx wrangler pages deploy build --project-name=myo2
+```
+
+---
+
+## 📂 Project Structure
+
+```text
+myO2/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml        # Cloudflare Pages CI/CD workflow
+├── images/                   # App showcase screenshots
+│   ├── home.png
+│   ├── mobile-home.png
+│   ├── welcome.png
+│   ├── login.png
+│   ├── signup.png
+│   └── project-info.png
+├── public/                   # Public static assets & index.html
+├── src/
+│   ├── components/           # Reusable UI components (HeaderBar, Card, LoadingScreen, etc.)
+│   ├── Global/               # Firebase configuration, constants, and utility helpers
+│   ├── styles/               # Global SCSS stylesheets, variables, mixins, and fonts
+│   ├── views/                # Route views (Home, Welcome, Login, Signup, Management, etc.)
+│   ├── App.js                # App entry point, routing table, and push notification listener
+│   └── index.js              # React DOM render root (HashRouter)
+├── .env                      # Preflight check configuration
+├── package.json              # Project scripts & dependencies
+└── README.md
+```
+
+---
+
+## 👤 Author
+
+**NHAT TRAN**
+- GitHub: [@nhatnice](https://github.com/nhatnice)
+- Portfolio: [nhatt.com](https://nhatt.com)
+
+Built with ❤️ for the community during the COVID-19 pandemic relief efforts.
