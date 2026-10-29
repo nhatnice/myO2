@@ -22,9 +22,10 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start --host 0.0.0.0 set HOST=0.0.0.0",
-    "build": "react-scripts build",
-    "predeploy": "npm run build",
+    "prestart": "node scripts/generate-sw.js",
+    "start": "react-scripts start",
+    "prebuild": "node scripts/generate-sw.js",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider react-scripts build",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

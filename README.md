@@ -72,11 +72,23 @@ npm install --legacy-peer-deps
 
 ### 3. Environment configuration
 
-Create a `.env` file in the root directory (or use the provided `.env`):
+Copy `.env.example` to `.env` or set the environment variables in your build environment:
 
 ```bash
-SKIP_PREFLIGHT_CHECK=true
+cp .env.example .env
 ```
+
+| Variable Name | Description | Example / Default |
+| :--- | :--- | :--- |
+| `SKIP_PREFLIGHT_CHECK` | Bypass CRA dependency tree preflight check | `true` |
+| `REACT_APP_FIREBASE_API_KEY` | Firebase Web API Key | `AIzaSyAGLoe...` |
+| `REACT_APP_FIREBASE_AUTH_DOMAIN` | Firebase Auth Domain | `myo2-56c74.firebaseapp.com` |
+| `REACT_APP_FIREBASE_PROJECT_ID` | Firebase Project ID | `myo2-56c74` |
+| `REACT_APP_FIREBASE_STORAGE_BUCKET` | Firebase Storage Bucket | `myo2-56c74.appspot.com` |
+| `REACT_APP_FIREBASE_MESSAGING_SENDER_ID` | FCM Messaging Sender ID | `930773898003` |
+| `REACT_APP_FIREBASE_APP_ID` | Firebase Web App ID | `1:930773898003:web:...` |
+| `REACT_APP_FIREBASE_MEASUREMENT_ID` | Google Analytics Measurement ID | `G-KY9TKCQG6K` |
+| `REACT_APP_FIREBASE_DATABASE_URL` | *(Optional)* Custom Realtime Database URL | `https://myo2-56c74-default-rtdb.firebaseio.com` |
 
 ### 4. Run the development server
 
