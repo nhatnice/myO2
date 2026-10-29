@@ -163,7 +163,7 @@ myO2/
 │   ├── views/                # Route views (Home, Welcome, Login, Signup, Management, etc.)
 │   ├── App.js                # App entry point, routing table, and push notification listener
 │   └── index.js              # React DOM render root (HashRouter)
-├── .env                      # Preflight check configuration
+├── .env.example              # Example environment variables template
 ├── package.json              # Project scripts & dependencies
 └── README.md
 ```
